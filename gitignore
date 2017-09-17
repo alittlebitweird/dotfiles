@@ -16,6 +16,8 @@ Thumbs.db
 # General
 log/
 *.log
+
+# dotfiles
 .env-development
 .env
 .swo
