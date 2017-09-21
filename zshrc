@@ -36,10 +36,12 @@
   alias dotfiles="cd ~/dotfiles"
   alias tmux="tmux attach"
   alias owi="cd ~/projects/nickcamillo/bidmessenger; clear; echoBiddy"
+  alias blog="cd ~/projects/nickcamillo/blog; clear; echoGnome"
   alias todo="cd ~/projects/todo; clear; vi README.md +Pencil;"
   alias def="cd ~/projects/def_method; clear; echoDefMethod"
   alias dui="cd ~/projects/def_method/dependable-ui; clear; echoDefMethod"
   alias dapi="cd ~/projects/def_method/dependable-api; clear; echoDefMethod"
+  alias arts="cd ~/projects/def_method/artspooler; clear; echoDefMethod"
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ASCII Colors

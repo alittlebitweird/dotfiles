@@ -44,9 +44,9 @@
     Plugin 'jelera/vim-javascript-syntax'
     Plugin 'elzr/vim-json'
     Plugin 'pangloss/vim-javascript'
-    Plugin 'mxw/vim-jsx'
     Plugin 'kchmck/vim-coffee-script'
     Plugin 'nikvdp/ejs-syntax'
+    Plugin 'mxw/vim-jsx'
     Plugin 'vim-scripts/DeleteTrailingWhitespace'
 
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -69,10 +69,11 @@
   set autoindent               " indent automatically
   set smartindent              " try to indent intelligently
   set tabstop=2                " 1 tab = 2 columns
-  set softtabstop=2            " indent intead of insert tab
+  "set softtabstop=2            " indent intead of insert tab
   set shiftwidth=2             " 1 indent = 2 columns
   set expandtab                " insert spaces instead of tabs
-  set ignorecase               " ignore case in / searches
+  set smarttab                 " tab to next indentation at beginning of line
+  "set ignorecase               " ignore case in / searches
   set smartcase                " don't ignore uppercase letters
   set showcmd                  " show commands you are typing
   set incsearch                " search as you type
