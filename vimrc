@@ -80,6 +80,7 @@
   set scrolloff=8              " start ver scrolling 8 lines from margins
   set sidescrolloff=15         " start hoz scrolling 15 spaces from margin
   set sidescroll=1             " allow hoz scrolling
+  set noswapfile
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Presentation

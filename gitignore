@@ -20,6 +20,6 @@ log/
 # dotfiles
 .env-development
 .env
-.swo
-.swp
-
+*.swo
+*.swp
+*.pw
