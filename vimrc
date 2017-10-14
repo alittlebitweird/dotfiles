@@ -41,12 +41,16 @@
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Plugin 'tpope/vim-rails.git'
     Plugin 'tpope/vim-endwise'
-    Plugin 'jelera/vim-javascript-syntax'
+    "Plugin 'jelera/vim-javascript-syntax'
+    "Plugin 'othree/yajs.vim'
     Plugin 'elzr/vim-json'
     Plugin 'pangloss/vim-javascript'
-    Plugin 'kchmck/vim-coffee-script'
-    Plugin 'nikvdp/ejs-syntax'
+    "Plugin 'kchmck/vim-coffee-script'
+    "Plugin 'nikvdp/ejs-syntax'
     Plugin 'mxw/vim-jsx'
+    "Plugin 'leafgarland/typescript-vim'
+    Plugin 'mustache/vim-mustache-handlebars'
+    Plugin 'othree/javascript-libraries-syntax.vim'
     Plugin 'vim-scripts/DeleteTrailingWhitespace'
 
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -69,10 +73,10 @@
   set autoindent               " indent automatically
   set smartindent              " try to indent intelligently
   set tabstop=2                " 1 tab = 2 columns
-  "set softtabstop=2            " indent intead of insert tab
+  set softtabstop=2            " indent intead of insert tab
   set shiftwidth=2             " 1 indent = 2 columns
   set expandtab                " insert spaces instead of tabs
-  set smarttab                 " tab to next indentation at beginning of line
+  "set smarttab                 " tab to next indentation at beginning of line
   "set ignorecase               " ignore case in / searches
   set smartcase                " don't ignore uppercase letters
   set showcmd                  " show commands you are typing
@@ -90,15 +94,16 @@
   syntax on                    " Allow Syntax Highlighting
   set ruler                    " Indicate current position in statusline
   set number                   " Indicate row numbers
-  set cursorline               " Indicate current row of cursor
-  hi CursorLineNr term=bold cterm=bold ctermfg=2 guifg=Grey guibg=Grey90
+  "set cursorline               " Indicate current row of cursor SLOW
+  "hi CursorLineNr term=bold cterm=bold ctermfg=2 guifg=Grey guibg=Grey90
   set fillchars=""             " Fill splits with spaces
   set hlsearch                 " Highligh search Text
   set laststatus=2             " Always Show Status Bar
   set listchars=trail:*,tab:-> " Display Spaces / Tabs
   set list                     " Required for listchars to work
-  match Error /\%>80v.\+/      " Highlight characters past 80
-  hi Error ctermfg=Black guifg=Black ctermbg=Red guibg=Red
+  set lazyredraw
+  "match Error /\%>80v.\+/      " Highlight characters past 80
+  "hi Error ctermfg=Black guifg=Black ctermbg=Red guibg=Red
 
   " format statusline
   set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P

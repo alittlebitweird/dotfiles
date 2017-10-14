@@ -42,7 +42,8 @@
   alias dui="cd ~/projects/def_method/dependable-ui; clear; echoDefMethod"
   alias dapi="cd ~/projects/def_method/dependable-api; clear; echoDefMethod"
   alias arts="cd ~/projects/def_method/artspooler; clear; echoDefMethod"
-
+  alias python="python3"
+  alias pip="pip3"
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ASCII Colors
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
