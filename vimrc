@@ -130,10 +130,6 @@
   nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
   nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
-  " [ctrl o] copy and paste
-  set pastetoggle=<C-o>
-  inoremap <C-v> <ESC>"+pa
-
   " [ctrl f] recursively search files
   nnoremap <C-f> :Ack!
 
