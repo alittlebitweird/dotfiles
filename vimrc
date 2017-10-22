@@ -26,7 +26,6 @@
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Plugin 'jeetsukumaran/vim-buffergator'
     Plugin 'scrooloose/nerdtree'
-    Plugin 'jistr/vim-nerdtree-tabs'
     Plugin 'christoomey/vim-tmux-navigator'
 
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -124,8 +123,7 @@
 " Control Functions
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   " [ctrl t] toggle NerdTree
-  noremap <C-t> :NERDTreeTabsToggle<CR>
-  inoremap <C-t> <Esc>:NERDTreeTabsToggle<CR>
+  nnoremap <C-t> :NERDTreeToggle<CR>
 
   " [ctrl h/j] switch between/maximize panes
   nnoremap <leader>j <C-W>j<C-W>_
