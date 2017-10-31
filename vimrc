@@ -15,53 +15,52 @@
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   " Display/Defaults Plugins
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Plugin 'L9'
-    Plugin 'tpope/vim-sensible'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'airblade/vim-gitgutter'
-    Plugin 'itchyny/lightline.vim'
+    Plugin 'L9'                                       " vimscript utilities
+    Plugin 'tpope/vim-sensible'                       " sensible vim defaults
+    Plugin 'tpope/vim-fugitive'                       " git wrapper
+    Plugin 'airblade/vim-gitgutter'                   " visualize git deltas
+    Plugin 'itchyny/lightline.vim'                    " customize vim statusbar
 
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   " Navigation Plugins
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Plugin 'jeetsukumaran/vim-buffergator'
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'jistr/vim-nerdtree-tabs'
-    Plugin 'christoomey/vim-tmux-navigator'
+    Plugin 'jeetsukumaran/vim-buffergator'            " leader keys for buffers
+    Plugin 'scrooloose/nerdtree'                      " file navigator
+    Plugin 'jistr/vim-nerdtree-tabs'                  " support tabs
+    Plugin 'christoomey/vim-tmux-navigator'           " allow tmux integration
 
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   " Search Plugins
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Plugin 'FuzzyFinder'
-    Plugin 'kien/ctrlp.vim'
-    Plugin 'mileszs/ack.vim'
+    Plugin 'kien/ctrlp.vim'                           " search for files
+    Plugin 'mileszs/ack.vim'                          " better grep
 
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   " Syntax/Language Plugins
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Plugin 'tpope/vim-rails.git'
-    Plugin 'tpope/vim-endwise'
-    "Plugin 'jelera/vim-javascript-syntax'
-    "Plugin 'othree/yajs.vim'
-    Plugin 'elzr/vim-json'
-    Plugin 'pangloss/vim-javascript'
-    "Plugin 'kchmck/vim-coffee-script'
-    "Plugin 'nikvdp/ejs-syntax'
-    Plugin 'mxw/vim-jsx'
-    "Plugin 'leafgarland/typescript-vim'
-    Plugin 'mustache/vim-mustache-handlebars'
-    Plugin 'othree/javascript-libraries-syntax.vim'
-    Plugin 'vim-scripts/DeleteTrailingWhitespace'
+    Plugin 'tpope/vim-rails.git'                      " rails syntax + extras
+    Plugin 'tpope/vim-endwise'                        " auto insert ends
+    "Plugin 'jelera/vim-javascript-syntax'            " js syntax
+    "Plugin 'othree/yajs.vim'                         " js syntax
+    Plugin 'elzr/vim-json'                            " json syntax
+    Plugin 'pangloss/vim-javascript'                  " js syntax
+    "Plugin 'kchmck/vim-coffee-script'                " coffeescript syntax
+    "Plugin 'nikvdp/ejs-syntax'                       " ejs syntax
+    Plugin 'mxw/vim-jsx'                              " jsx syntax
+    "Plugin 'leafgarland/typescript-vim'              " typescript syntax
+    Plugin 'mustache/vim-mustache-handlebars'         " handlebars syntax
+    Plugin 'othree/javascript-libraries-syntax.vim'   " js syntax
+    Plugin 'vim-scripts/DeleteTrailingWhitespace'     " delete trailing spaces
 
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   " Writing Plugins
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Plugin 'junegunn/goyo.vim'
-    Plugin 'reedes/vim-pencil'
-    Plugin 'plasticboy/vim-markdown'
-    Plugin 'mzlogin/vim-markdown-toc'
-    Plugin 'reedes/vim-litecorrect'
-    Plugin 'dhruvasagar/vim-table-mode'
+    Plugin 'junegunn/goyo.vim'                        " distraction free writing
+    Plugin 'reedes/vim-pencil'                        " document editing mode
+    Plugin 'plasticboy/vim-markdown'                  " markdown syntax
+    Plugin 'mzlogin/vim-markdown-toc'                 " table of contents
+    Plugin 'reedes/vim-litecorrect'                   " spellcheck
+    Plugin 'dhruvasagar/vim-table-mode'               " table generator
 
   call vundle#end()
   filetype plugin indent on
@@ -160,8 +159,7 @@
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   set updatetime=250
   let g:gitgutter_sign_modified = '•'
-  let g:gitgutter_sign_added = '❖'
-  highlight GitGutterAdd guifg='#A3E28B'
+  let g:gitgutter_sign_added = '+'
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Statusline

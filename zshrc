@@ -35,6 +35,8 @@
   alias pushitgood="rake heroku:deploy"
   alias dotfiles="cd ~/dotfiles"
   alias tmux="tmux attach"
+  alias talks="cd ~/projects/talks; clear; echoGnome"
+  alias zen="cd ~/projects/talks/zen-and-the-art-of-terminal-configuration; clear; echoGnome"
   alias owi="cd ~/projects/nickcamillo/bidmessenger; clear; echoBiddy"
   alias blog="cd ~/projects/nickcamillo/blog; clear; echoGnome"
   alias todo="cd ~/projects/todo; clear; vi README.md +Pencil;"
