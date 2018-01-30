@@ -44,12 +44,19 @@
     "Plugin 'othree/yajs.vim'
     Plugin 'elzr/vim-json'
     Plugin 'pangloss/vim-javascript'
-    "Plugin 'kchmck/vim-coffee-script'
+    Plugin 'kchmck/vim-coffee-script'
     "Plugin 'nikvdp/ejs-syntax'
     Plugin 'mxw/vim-jsx'
-    "Plugin 'leafgarland/typescript-vim'
     Plugin 'mustache/vim-mustache-handlebars'
+    Plugin 'leafgarland/typescript-vim'
     Plugin 'othree/javascript-libraries-syntax.vim'
+    Plugin 'w0rp/ale'
+    Plugin 'slim-template/vim-slim.git'
+
+  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  " Utility Plugins
+  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Plugin 'scrooloose/nerdcommenter'
     Plugin 'vim-scripts/DeleteTrailingWhitespace'
 
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,7 +90,7 @@
   set scrolloff=8              " start ver scrolling 8 lines from margins
   set sidescrolloff=15         " start hoz scrolling 15 spaces from margin
   set sidescroll=1             " allow hoz scrolling
-  set noswapfile
+  " set noswapfile
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Presentation
@@ -152,6 +159,14 @@
 
   " [K] grep word under cursor
   nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Ale
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  let g:ale_fixers = {
+        \   'javascript': ['eslint'],
+        \   'ruby': ['rubocop'],
+        \}
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Git Gutter

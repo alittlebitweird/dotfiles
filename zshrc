@@ -7,7 +7,7 @@
 # PATH Definitions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   export ZSH=$HOME/.oh-my-zsh
-  export PATH=/Users/nickcamillo/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+  export PATH=/Users/nickcamillo/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH:/Library/Python/3.6/bin
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Theme Options
@@ -41,9 +41,9 @@
   alias def="cd ~/projects/def_method; clear; echoDefMethod"
   alias dui="cd ~/projects/def_method/dependable-ui; clear; echoDefMethod"
   alias dapi="cd ~/projects/def_method/dependable-api; clear; echoDefMethod"
-  alias arts="cd ~/projects/def_method/artspooler; clear; echoDefMethod"
-  alias python="python3"
-  alias pip="pip3"
+  alias afb="cd ~/projects/def_method/affordable/BackEndMaster; clear; echoDefMethod"
+  alias aff="cd ~/projects/def_method/affordable/FrontEndMaster; clear; echoDefMethod"
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ASCII Colors
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
