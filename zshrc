@@ -7,7 +7,13 @@
 # PATH Definitions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   export ZSH=$HOME/.oh-my-zsh
-  export PATH=/Users/nickcamillo/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH:/Library/Python/3.6/bin
+  export PATH=/Users/nickcamillo/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH:/Library/Python/3.6/bin:/Library/Python/3.4/bin:/usr/local/opt/mongodb@3.4/bin
+  export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+  export GOPATH=:"$HOME/go"
+  export GOROOT=/usr/local/opt/go/libexec
+  export PATH=$PATH:$GOPATH/bin
+  export PATH=$PATH:$GOROOT/bin
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Theme Options
@@ -30,7 +36,6 @@
   alias e="exit"
   alias reload="source ~/.zshrc; tmux source-file .tmux.conf"
   alias chrome="open -a 'Google Chrome'"
-  alias go="rake dev:start"
   alias work="rake jobs:work"
   alias pushitgood="rake heroku:deploy"
   alias dotfiles="cd ~/dotfiles"
@@ -186,4 +191,4 @@
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 
-
+export TERM=xterm-256color
