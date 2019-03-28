@@ -1,9 +1,10 @@
 [user]
-  name = Nick Camillo 
+  name = Nick Camillo
   email = nick.camillo@gmail.com
 [core]
   editor = /usr/bin/vim
   excludesfile = /Users/nickcamillo/.gitignore
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
   branch = auto
   diff = auto
@@ -28,6 +29,7 @@
   lg = log --graph --decorate --oneline
   lola = log --graph --decorate --oneline --all
   blog = log origin/master... --left-right
+  slog = log --oneline --decorate --graph
   ds = diff --staged
   fixup = commit --fixup
   squash = commit --squash
@@ -44,4 +46,13 @@
   rpo = remote prune origin
   mom = merge origin/master
   lom = !git lol origin/master
-
+[apply]
+  whitespace = nowarn
+[branch]
+  autosetupmerge = true
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[push]
+  default = simple

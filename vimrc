@@ -21,12 +21,14 @@
     Plugin 'airblade/vim-gitgutter'
     Plugin 'itchyny/lightline.vim'
 
+
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   " Navigation Plugins
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Plugin 'jeetsukumaran/vim-buffergator'
     Plugin 'scrooloose/nerdtree'
     Plugin 'christoomey/vim-tmux-navigator'
+    Plugin 'myusuf3/numbers.vim'
 
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   " Search Plugins
@@ -42,15 +44,30 @@
     Plugin 'tpope/vim-endwise'
     "Plugin 'jelera/vim-javascript-syntax'
     "Plugin 'othree/yajs.vim'
-    Plugin 'elzr/vim-json'
+    "Plugin 'elzr/vim-json'
     Plugin 'pangloss/vim-javascript'
     "Plugin 'kchmck/vim-coffee-script'
     "Plugin 'nikvdp/ejs-syntax'
-    Plugin 'mxw/vim-jsx'
+    "Plugin 'mustache/vim-mustache-handlebars'
     "Plugin 'leafgarland/typescript-vim'
-    Plugin 'mustache/vim-mustache-handlebars'
-    Plugin 'othree/javascript-libraries-syntax.vim'
+    "Plugin 'othree/javascript-libraries-syntax.vim'
+    "Plugin 'maxmellon/vim-jsx-pretty'
+    Plugin 'chemzqm/vim-jsx-improve'
+    "Plugin 'mxw/vim-jsx'
+    Plugin 'w0rp/ale'
+    "Plugin 'slim-template/vim-slim.git'
+    Plugin 'fatih/vim-go'
+    Plugin 'chr4/nginx.vim'
+    Plugin 'leafgarland/typescript-vim'
+    Plugin 'peitalin/vim-jsx-typescript'
+
+  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  " Utility Plugins
+  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Plugin 'scrooloose/nerdcommenter'
     Plugin 'vim-scripts/DeleteTrailingWhitespace'
+    Plugin 'skalnik/vim-vroom'
+
 
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   " Writing Plugins
@@ -83,13 +100,14 @@
   set scrolloff=8              " start ver scrolling 8 lines from margins
   set sidescrolloff=15         " start hoz scrolling 15 spaces from margin
   set sidescroll=1             " allow hoz scrolling
-  set noswapfile
+  " set noswapfile
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Presentation
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   set t_Co=256                 " Allow vim to display in 256 colors
-  colorscheme wombat256mod     " Use 'the best' color scheme
+  set background=dark
+  colorscheme pan              " Use 'the best' color scheme
   syntax on                    " Allow Syntax Highlighting
   set ruler                    " Indicate current position in statusline
   set number                   " Indicate row numbers
@@ -98,14 +116,14 @@
   set fillchars=""             " Fill splits with spaces
   set hlsearch                 " Highligh search Text
   set laststatus=2             " Always Show Status Bar
-  set listchars=trail:*,tab:-> " Display Spaces / Tabs
+  set listchars=trail:*,tab:▸\  " Display Spaces / Tabs
   set list                     " Required for listchars to work
   set lazyredraw
   "match Error /\%>80v.\+/      " Highlight characters past 80
   "hi Error ctermfg=Black guifg=Black ctermbg=Red guibg=Red
 
   " format statusline
-  set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+  set statusline=%<%F\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Leader Functions
@@ -123,7 +141,8 @@
 " Control Functions
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   " [ctrl t] toggle NerdTree
-  nnoremap <C-t> :NERDTreeToggle<CR>
+  autocmd VimEnter * nnoremap <leader>t :NERDTreeToggle<CR>
+  autocmd VimEnter * nnoremap <C-t> :NERDTreeToggle<CR>
 
   " [ctrl h/j] switch between/maximize panes
   nnoremap <leader>j <C-W>j<C-W>_
@@ -134,7 +153,7 @@
   nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
   " [ctrl f] recursively search files
-  nnoremap <C-f> :Ack!
+  nnoremap <C-f> :Ack! -R "
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Utility Aliases
@@ -154,12 +173,39 @@
   nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" NERDTree
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  let g:NERDTreeNodeDelimiter = "\u00a0"
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Go-Vim
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  let g:go_def_mapping_enabled = 0
+  let g:go_def_mode = 'godef'
+  let g:go_version_warning = 0
+  let g:go_fmt_command = "goimports"
+
+  au FileType go nmap <leader>g <Plug>(go-def)
+  augroup twig_ft
+    au!
+    autocmd BufNewFile,BufRead *.ego   set syntax=html
+  augroup END
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Ale
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  let g:ale_fixers = {
+        \   'javascript': ['eslint'],
+        \   'ruby': ['rubocop'],
+        \   'go': ['gofmt'],
+        \}
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Git Gutter
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   set updatetime=250
-  let g:gitgutter_sign_modified = '•'
-  let g:gitgutter_sign_added = '❖'
-  highlight GitGutterAdd guifg='#A3E28B'
+  let g:gitgutter_sign_removed = '-'
+  let g:gitgutter_sign_modified = '~'
+  let g:gitgutter_sign_added = '+'
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Statusline

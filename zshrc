@@ -4,10 +4,31 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# MoMA Stuff
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  export CLICOLOR=1
+  export LSCOLORS=ExFxCxDxBxegedabagacad
+
+  alias xctool='~/Projects/xctool/xctool.sh'
+  alias mm='cd ~/workspace/moma.org/'
+  alias m2='cd ~/workspace/moma.org.rails2/'
+  alias mmgo='cd ~/workspace/go/src/github.com/momadigitalmedia/moma-go/'
+  alias mserver='cd ~/workspace/server-config'
+  alias ma='cd ~/workspace/ios-app-2'
+  alias ms='cd ~/workspace/static'
+  alias rss='./bin/start_server.sh local --ruby=$(rbenv which ruby)'
+  alias rtp='bundle exec rake parallel:rake[db:run_materialized_views]'
+  alias logs='cd /var/log/nginx'
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # PATH Definitions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   export ZSH=$HOME/.oh-my-zsh
-  export PATH=/Users/nickcamillo/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+  export PATH=/Users/nickcamillo/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH:/Library/Python/3.6/bin:/Library/Python/3.4/bin:/usr/local/opt/mongodb@3.4/bin:/usr/local/go/bin
+  export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+  export GOPATH=""
+  export PATH=$HOME/workspace/go/bin:$PATH
+  export PKG_CONFIG_PATH=\"/usr/local/opt/libxml2/lib/pkgconfig:\$PKG_CONFIG_PATH\"
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Theme Options
@@ -30,20 +51,20 @@
   alias e="exit"
   alias reload="source ~/.zshrc; tmux source-file .tmux.conf"
   alias chrome="open -a 'Google Chrome'"
-  alias go="rake dev:start"
   alias work="rake jobs:work"
   alias pushitgood="rake heroku:deploy"
   alias dotfiles="cd ~/dotfiles"
   alias tmux="tmux attach"
+  alias cat="bat"
   alias owi="cd ~/projects/nickcamillo/bidmessenger; clear; echoBiddy"
   alias blog="cd ~/projects/nickcamillo/blog; clear; echoGnome"
   alias todo="cd ~/projects/todo; clear; vi README.md +Pencil;"
   alias def="cd ~/projects/def_method; clear; echoDefMethod"
   alias dui="cd ~/projects/def_method/dependable-ui; clear; echoDefMethod"
   alias dapi="cd ~/projects/def_method/dependable-api; clear; echoDefMethod"
-  alias arts="cd ~/projects/def_method/artspooler; clear; echoDefMethod"
-  alias python="python3"
-  alias pip="pip3"
+  alias afb="cd ~/projects/def_method/affordable/BackEndMaster; clear; echoDefMethod"
+  alias aff="cd ~/projects/def_method/affordable/FrontEndMaster; clear; echoDefMethod"
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ASCII Colors
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -186,4 +207,11 @@
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 
-
+export TERM=xterm-256color
+export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/usr/local/opt/libiconv/bin:$PATH"
+export PATH="/usr/local/opt/libxslt/bin:$PATH"
+export PATH="$PATH:/opt/yarn-[version]/bin"

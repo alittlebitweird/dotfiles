@@ -5,7 +5,6 @@
   alias e="exit"
   alias reload="source ~/.zshrc; tmux source-file .tmux.conf"
   alias chrome="open -a 'Google Chrome'"
-  alias go="rake dev:start"
   alias work="rake jobs:work"
   alias pushitgood="rake heroku:deploy"
   alias dotfiles="cd ~/dotfiles"
@@ -21,3 +20,4 @@
   alias arts="cd ~/projects/def_method/artspooler; clear; echoDefMethod"
   alias python="python3"
   alias pip="pip3"
+
