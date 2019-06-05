@@ -10,15 +10,25 @@
   export LSCOLORS=ExFxCxDxBxegedabagacad
 
   alias xctool='~/Projects/xctool/xctool.sh'
-  alias mm='cd ~/workspace/moma.org/'
+  # alias mm='cd ~/workspace/moma.org/'
   alias m2='cd ~/workspace/moma.org.rails2/'
-  alias mmgo='cd ~/workspace/go/src/github.com/momadigitalmedia/moma-go/'
+  # alias mmgo='cd ~/workspace/go/src/github.com/momadigitalmedia/moma-go/'
   alias mserver='cd ~/workspace/server-config'
   alias ma='cd ~/workspace/ios-app-2'
-  alias ms='cd ~/workspace/static'
+  # alias ms='cd ~/workspace/static'
   alias rss='./bin/start_server.sh local --ruby=$(rbenv which ruby)'
   alias rtp='bundle exec rake parallel:rake[db:run_materialized_views]'
   alias logs='cd /var/log/nginx'
+
+  alias mk='cd ~/workspace/moma.org.kubed/'
+  alias mmgo='cd ~/workspace/moma.org.kubed/repos/moma-go/'
+  alias ms='cd ~/workspace/moma.org.kubed/repos/static'
+  alias mm='cd ~/workspace/moma.org.kubed/repos/moma.org.rails4/'
+
+  alias mks='minikube start --extra-config=apiserver.service-node-port-range=0-50000 -v 5 --mount-string="$HOME/workspace/moma.org.kubed:/mnt/moma.org.kubed" --mount --insecure-registry="harbor.museum.moma.org" --kubernetes-version v1.12.7 && kubectl config use-context local && kubectl get all'
+
+  alias dbpw='echo $(kubectl get secret db-beta-local-postgresql -o "jsonpath={.data.postgresql-password}" | base64 --decode)'
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # PATH Definitions

@@ -28,7 +28,8 @@
     Plugin 'jeetsukumaran/vim-buffergator'
     Plugin 'scrooloose/nerdtree'
     Plugin 'christoomey/vim-tmux-navigator'
-    Plugin 'myusuf3/numbers.vim'
+    "Plugin 'myusuf3/numbers.vim'
+    Plugin 'ludovicchabant/vim-gutentags'
 
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   " Search Plugins
@@ -40,6 +41,7 @@
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   " Syntax/Language Plugins
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Plugin 'vim-ruby/vim-ruby'
     Plugin 'tpope/vim-rails.git'
     Plugin 'tpope/vim-endwise'
     "Plugin 'jelera/vim-javascript-syntax'
@@ -66,7 +68,7 @@
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Plugin 'scrooloose/nerdcommenter'
     Plugin 'vim-scripts/DeleteTrailingWhitespace'
-    Plugin 'skalnik/vim-vroom'
+    Plugin 'janko-m/vim-test'
 
 
   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -101,6 +103,9 @@
   set sidescrolloff=15         " start hoz scrolling 15 spaces from margin
   set sidescroll=1             " allow hoz scrolling
   " set noswapfile
+  set foldmethod=manual        " fold based on indentation
+  " set foldlevel=1              " for anything indented more than 1 level
+  " set foldclose=all            " auto-close fold after navigating out of fold
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Presentation
@@ -155,6 +160,13 @@
   " [ctrl f] recursively search files
   nnoremap <C-f> :Ack! -R "
 
+  " Run nearest test
+  nnoremap <leader>R :TestNearest<CR>
+  " Run whole test file
+  nnoremap <leader>r :TestFile<CR>
+  " Run last test
+  nnoremap <leader>l :TestLast<CR>
+
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Utility Aliases
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -169,22 +181,24 @@
   nnoremap > >>
   nnoremap < <<
 
-  " [K] grep word under cursor
-  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+  " [F] grep word under cursor
+  nnoremap F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " NERDTree
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   let g:NERDTreeNodeDelimiter = "\u00a0"
+
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Go-Vim
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   let g:go_def_mapping_enabled = 0
   let g:go_def_mode = 'godef'
   let g:go_version_warning = 0
-  let g:go_fmt_command = "goimports"
+  "let g:go_fmt_command = "goimports"
 
   au FileType go nmap <leader>g <Plug>(go-def)
+  au FileType go nmap <leader>I <Plug>(go-imports)
   augroup twig_ft
     au!
     autocmd BufNewFile,BufRead *.ego   set syntax=html
@@ -228,10 +242,20 @@
         \ },
         \ 'component_function': {
         \ 'ctrlpmark': 'CtrlPMark',
+        \ 'filename': 'LightlineFilename',
         \ },
         \ 'separator': { 'left': '', 'right': '' },
         \ 'subseparator': { 'left': '|', 'right': '|' }
         \ }
+
+  function! LightlineFilename()
+    let root = fnamemodify(get(b:, 'git_dir'), ':h')
+    let path = expand('%:p')
+    if path[:len(root)-1] ==# root
+      return path[len(root)+1:]
+    endif
+    return expand('%')
+  endfunction
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Ctrl P Prettify
