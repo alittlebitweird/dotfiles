@@ -216,6 +216,11 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# FZF
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
 
 export TERM=xterm-256color
 export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
@@ -225,3 +230,5 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/usr/local/opt/libiconv/bin:$PATH"
 export PATH="/usr/local/opt/libxslt/bin:$PATH"
 export PATH="$PATH:/opt/yarn-[version]/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

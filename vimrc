@@ -6,82 +6,84 @@
     let mapleader = "\<Space>"
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Vundle Package Manager
+" Vim Plug Package Manager
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  set rtp+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
-  Plugin 'gmarik/Vundle.vim'
+  call plug#begin('~/.vim/plugged')
 
-  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  " Display/Defaults Plugins
-  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Plugin 'L9'
-    Plugin 'tpope/vim-sensible'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'airblade/vim-gitgutter'
-    Plugin 'itchyny/lightline.vim'
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Display/Defaults Plugins
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Plug 'vim-scripts/L9'
+  Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'itchyny/lightline.vim'
 
 
-  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  " Navigation Plugins
-  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Plugin 'jeetsukumaran/vim-buffergator'
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'christoomey/vim-tmux-navigator'
-    "Plugin 'myusuf3/numbers.vim'
-    Plugin 'ludovicchabant/vim-gutentags'
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Navigation Plugs
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Plug 'jeetsukumaran/vim-buffergator'
+  Plug 'scrooloose/nerdtree'
+  Plug 'christoomey/vim-tmux-navigator'
+  "Plug 'myusuf3/numbers.vim'
+  Plug 'ludovicchabant/vim-gutentags'
 
-  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  " Search Plugins
-  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Plugin 'FuzzyFinder'
-    Plugin 'kien/ctrlp.vim'
-    Plugin 'mileszs/ack.vim'
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Search Plugs
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+  "Plug 'kien/ctrlp.vim'
+  Plug 'mileszs/ack.vim'
 
-  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  " Syntax/Language Plugins
-  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Plugin 'vim-ruby/vim-ruby'
-    Plugin 'tpope/vim-rails.git'
-    Plugin 'tpope/vim-endwise'
-    "Plugin 'jelera/vim-javascript-syntax'
-    "Plugin 'othree/yajs.vim'
-    "Plugin 'elzr/vim-json'
-    Plugin 'pangloss/vim-javascript'
-    "Plugin 'kchmck/vim-coffee-script'
-    "Plugin 'nikvdp/ejs-syntax'
-    "Plugin 'mustache/vim-mustache-handlebars'
-    "Plugin 'leafgarland/typescript-vim'
-    "Plugin 'othree/javascript-libraries-syntax.vim'
-    "Plugin 'maxmellon/vim-jsx-pretty'
-    Plugin 'chemzqm/vim-jsx-improve'
-    "Plugin 'mxw/vim-jsx'
-    Plugin 'w0rp/ale'
-    "Plugin 'slim-template/vim-slim.git'
-    Plugin 'fatih/vim-go'
-    Plugin 'chr4/nginx.vim'
-    Plugin 'leafgarland/typescript-vim'
-    Plugin 'peitalin/vim-jsx-typescript'
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Syntax/Language Plugs
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Plug 'vim-ruby/vim-ruby'
+  Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-endwise'
+  "Plug 'jelera/vim-javascript-syntax'
+  "Plug 'othree/yajs.vim'
+  "Plug 'elzr/vim-json'
+  Plug 'pangloss/vim-javascript'
+  "Plug 'kchmck/vim-coffee-script'
+  "Plug 'nikvdp/ejs-syntax'
+  "Plug 'mustache/vim-mustache-handlebars'
+  "Plug 'leafgarland/typescript-vim'
+  "Plug 'othree/javascript-libraries-syntax.vim'
+  "Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'chemzqm/vim-jsx-improve'
+  "Plug 'mxw/vim-jsx'
+  Plug 'w0rp/ale'
+  "Plug 'slim-template/vim-slim.git'
+  Plug 'fatih/vim-go'
+  Plug 'chr4/nginx.vim'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'peitalin/vim-jsx-typescript'
+  Plug 'prettier/vim-prettier', {
+    \ 'do': 'yarn install',
+    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'ruby'] }
 
-  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  " Utility Plugins
-  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Plugin 'scrooloose/nerdcommenter'
-    Plugin 'vim-scripts/DeleteTrailingWhitespace'
-    Plugin 'janko-m/vim-test'
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Utility Plugs
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'vim-scripts/DeleteTrailingWhitespace'
+  Plug 'janko-m/vim-test'
 
 
-  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  " Writing Plugins
-  " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Plugin 'junegunn/goyo.vim'
-    Plugin 'reedes/vim-pencil'
-    Plugin 'plasticboy/vim-markdown'
-    Plugin 'mzlogin/vim-markdown-toc'
-    Plugin 'reedes/vim-litecorrect'
-    Plugin 'dhruvasagar/vim-table-mode'
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Writing Plugs
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Plug 'junegunn/goyo.vim'
+  Plug 'reedes/vim-pencil'
+  Plug 'plasticboy/vim-markdown'
+  Plug 'mzlogin/vim-markdown-toc'
+  Plug 'reedes/vim-litecorrect'
+  Plug 'dhruvasagar/vim-table-mode'
 
-  call vundle#end()
+  call plug#end()
   filetype plugin indent on
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -145,6 +147,8 @@
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Control Functions
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  " [ctrl p] start fzf
+  autocmd VimEnter * nnoremap <C-p> :Files<CR>
   " [ctrl t] toggle NerdTree
   autocmd VimEnter * nnoremap <leader>t :NERDTreeToggle<CR>
   autocmd VimEnter * nnoremap <C-t> :NERDTreeToggle<CR>
@@ -184,6 +188,39 @@
   " [F] grep word under cursor
   nnoremap F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" FZF
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let g:fzf_layout = { 'down': '~25%' }
+let g:fzf_colors =
+  \ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
+" use ag to use gitignore
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " NERDTree
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -208,9 +245,10 @@
 " Ale
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   let g:ale_fixers = {
-        \   'javascript': ['eslint'],
-        \   'ruby': ['rubocop'],
+        \   'javascript': ['prettier'],
+        \   'ruby': ['prettier'],
         \   'go': ['gofmt'],
+        \   'html': ['prettier'],
         \}
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -241,7 +279,6 @@
         \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
         \ },
         \ 'component_function': {
-        \ 'ctrlpmark': 'CtrlPMark',
         \ 'filename': 'LightlineFilename',
         \ },
         \ 'separator': { 'left': '', 'right': '' },
@@ -258,36 +295,6 @@
   endfunction
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Ctrl P Prettify
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  function! CtrlPMark()
-    if expand('%:t') =~ 'ControlP' && has_key(g:lightline, 'ctrlp_item')
-      call lightline#link('iR'[g:lightline.ctrlp_regex])
-      return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
-            \ , g:lightline.ctrlp_next], 0)
-    else
-      return ''
-    endif
-  endfunction
-
-  function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
-    let g:lightline.ctrlp_regex = a:regex
-    let g:lightline.ctrlp_prev = a:prev
-    let g:lightline.ctrlp_item = a:item
-    let g:lightline.ctrlp_next = a:next
-    return lightline#statusline(0)
-  endfunction
-
-  function! CtrlPStatusFunc_2(str)
-    return lightline#statusline(0)
-  endfunction
-
-  let g:ctrlp_status_func = {
-    \ 'main': 'CtrlPStatusFunc_1',
-    \ 'prog': 'CtrlPStatusFunc_2',
-    \ }
-
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Ack Searching
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -298,12 +305,6 @@
   if executable('ag')
     " Use ag over grep
     set grepprg=ag\ --nogroup\ --nocolor
-
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-    " ag is fast enough that CtrlP doesn't need to cache
-    let g:ctrlp_use_caching = 0
   endif
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -338,23 +339,6 @@
   if has("autocmd")
     filetype plugin indent on
   endif
-
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Table Mode
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  function! s:isAtStartOfLine(mapping)
-    let text_before_cursor = getline('.')[0 : col('.')-1]
-    let mapping_pattern = '\V' . escape(a:mapping, '\')
-    let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
-    return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
-  endfunction
-
-  inoreabbrev <expr> <bar><bar>
-            \ <SID>isAtStartOfLine('\|\|') ?
-            \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
-  inoreabbrev <expr> __
-            \ <SID>isAtStartOfLine('__') ?
-            \ '<c-o>:silent! TableModeDisable<cr>' : '__'
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " TMUX Settings
