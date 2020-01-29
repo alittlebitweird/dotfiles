@@ -4,55 +4,30 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# MoMA Stuff
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  export CLICOLOR=1
-  export LSCOLORS=ExFxCxDxBxegedabagacad
-
-  alias xctool='~/Projects/xctool/xctool.sh'
-  # alias mm='cd ~/workspace/moma.org/'
-  alias m2='cd ~/workspace/moma.org.rails2/'
-  # alias mmgo='cd ~/workspace/go/src/github.com/momadigitalmedia/moma-go/'
-  alias mserver='cd ~/workspace/server-config'
-  alias ma='cd ~/workspace/ios-app-2'
-  # alias ms='cd ~/workspace/static'
-  alias rss='./bin/start_server.sh local --ruby=$(rbenv which ruby)'
-  alias rtp='bundle exec rake parallel:rake[db:run_materialized_views]'
-  alias logs='cd /var/log/nginx'
-
-  alias mk='cd ~/workspace/moma.org.kubed/'
-  alias mmgo='cd ~/workspace/moma.org.kubed/repos/moma-go/'
-  alias ms='cd ~/workspace/moma.org.kubed/repos/static'
-  alias mm='cd ~/workspace/moma.org.kubed/repos/moma.org.rails4/'
-
-  alias mks='minikube start --extra-config=apiserver.service-node-port-range=0-50000 -v 5 --mount-string="$HOME/workspace/moma.org.kubed:/mnt/moma.org.kubed" --mount --insecure-registry="harbor.museum.moma.org" --kubernetes-version v1.12.7 && kubectl config use-context local && kubectl get all'
-
-  alias dbpw='echo $(kubectl get secret db-beta-local-postgresql -o "jsonpath={.data.postgresql-password}" | base64 --decode)'
-
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # PATH Definitions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   export ZSH=$HOME/.oh-my-zsh
-  export PATH=/Users/nickcamillo/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH:/Library/Python/3.6/bin:/Library/Python/3.4/bin:/usr/local/opt/mongodb@3.4/bin:/usr/local/go/bin
-  export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
-  export GOPATH=""
+  export PATH=/Users/nickcamillo/.rbenv/shims:/Users/nickcamillo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH:/Library/Python/3.6/bin:/Library/Python/3.4/bin
   export PATH=$HOME/workspace/go/bin:$PATH
   export PKG_CONFIG_PATH=\"/usr/local/opt/libxml2/lib/pkgconfig:\$PKG_CONFIG_PATH\"
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Theme Options
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  GEOMETRY_COLOR_DIR="8"
-  PROMPT_GEOMETRY_EXEC_TIME=true
-  ZSH_THEME="geometry/geometry"
-  COMPLETION_WAITING_DOTS="true"
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Plugins
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  plugins=(git ruby history history-substring-search terminallap brew fast-syntax-highlighting heroku tmux)
-  source $ZSH/oh-my-zsh.sh
+  source ~/dotfiles/antigen.zsh
+  antigen use oh-my-zsh
+
+  antigen bundle git
+  antigen bundle ruby
+  antigen bundle history
+  antigen bundle history-substring-search
+  antigen bundle terminallap
+  antigen bundle zdharma/fast-syntax-highlighting
+  antigen bundle heroku
+  antigen bundle tmux
+
+  antigen theme geometry-zsh/geometry
+  antigen apply
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Aliases
@@ -60,9 +35,6 @@
   alias b="cd .."
   alias e="exit"
   alias reload="source ~/.zshrc; tmux source-file .tmux.conf"
-  alias chrome="open -a 'Google Chrome'"
-  alias work="rake jobs:work"
-  alias pushitgood="rake heroku:deploy"
   alias dotfiles="cd ~/dotfiles"
   alias tmux="tmux attach"
   alias cat="bat"
@@ -70,10 +42,7 @@
   alias blog="cd ~/projects/nickcamillo/blog; clear; echoGnome"
   alias todo="cd ~/projects/todo; clear; vi README.md +Pencil;"
   alias def="cd ~/projects/def_method; clear; echoDefMethod"
-  alias dui="cd ~/projects/def_method/dependable-ui; clear; echoDefMethod"
-  alias dapi="cd ~/projects/def_method/dependable-api; clear; echoDefMethod"
-  alias afb="cd ~/projects/def_method/affordable/BackEndMaster; clear; echoDefMethod"
-  alias aff="cd ~/projects/def_method/affordable/FrontEndMaster; clear; echoDefMethod"
+  alias clear="clear; echoGnome"
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ASCII Colors
@@ -212,15 +181,9 @@
 #  fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Autojump
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # FZF
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 export FZF_DEFAULT_COMMAND='ag -g ""'
-
 
 export TERM=xterm-256color
 export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
@@ -230,5 +193,5 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/usr/local/opt/libiconv/bin:$PATH"
 export PATH="/usr/local/opt/libxslt/bin:$PATH"
 export PATH="$PATH:/opt/yarn-[version]/bin"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $ZSH/oh-my-zsh.sh

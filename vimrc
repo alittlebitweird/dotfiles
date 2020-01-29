@@ -65,6 +65,9 @@
   Plug 'prettier/vim-prettier', {
     \ 'do': 'yarn install',
     \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'ruby'] }
+  Plug 'tpope/vim-fireplace'
+  Plug 'bhurlow/vim-parinfer'
+  Plug 'luochen1990/rainbow'
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Utility Plugs
@@ -241,6 +244,11 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
     au!
     autocmd BufNewFile,BufRead *.ego   set syntax=html
   augroup END
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" LISP
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Ale
